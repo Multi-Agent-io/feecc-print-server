@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "feecc-print-server"
+version = "0.1.0"
+description = "A printing server for Feecc QA system"
+authors = ["arseniiarsenii <arseniivelichko2@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.75.0"
+loguru = "^0.6.0"
+motor = "^2.5.1"
+uvicorn = "^0.17.6"
+Pillow = "^9.0.1"
+brother-ql = "^0.9.4"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.941"
+flake8 = "^4.0.1"
+black = "^22.1.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+exclude = "test*"
+strict = true
+ignore_missing_imports  = true
+
+[tool.black]
+line-length = 120
+
+[tool.flake8]
+count = true
+exit_zero = true
+max_line_length = 150
+exclude = [".venv", "docs", "tests"]

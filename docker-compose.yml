@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  feecc-print-server:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "0.0.0.0:8083:8083"
+    restart: always
+    volumes:
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+      - "~/.cache/pip/:/root/.cache/pip"
+    environment:
+      MONGODB_URI: ""  # Your MongoDB connection URI ending with /db-name
+      PRODUCTION_ENVIRONMENT: null  # Leave null if you want testing credentials to work
+      PAPER_WIDTH: "62"  # Paper width in mm (string)
+      PRINTER_MODEL: "QL-800"  # Label printer model
+      RED: true  # Whether the black and red paper is loaded or not
