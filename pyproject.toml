@@ -12,6 +12,8 @@ motor = "^2.5.1"
 uvicorn = "^0.17.6"
 Pillow = "^9.0.1"
 brother-ql = "^0.9.4"
+python-multipart = "^0.0.5"
+dnspython = "^2.2.1"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.941"
