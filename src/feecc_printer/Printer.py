@@ -110,7 +110,9 @@ class Printer:
     def _annotate_image(image: Image, text: str) -> Image:
         """add an annotation to the bottom of the image"""
         # wrap the message
-        font: FreeTypeFont = ImageFont.truetype("src/printing/fonts/helvetica-cyrillic-bold.ttf", 24)
+        font_path = "feecc_printer/fonts/helvetica-cyrillic-bold.ttf"
+        assert os.path.exists(font_path), f"Cannot open font at {font_path=}. No such file."
+        font: FreeTypeFont = ImageFont.truetype(font_path, 24)
         avg_char_width: float = mean((font.getsize(char)[0] for char in ascii_letters))
         img_w, img_h = image.size
         max_chars_in_line: int = int(img_w * 0.95 / avg_char_width)
