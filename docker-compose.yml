@@ -11,6 +11,7 @@ services:
       - "/etc/timezone:/etc/timezone:ro"
       - "/etc/localtime:/etc/localtime:ro"
       - "~/.cache/pip/:/root/.cache/pip"
+    privileged: true
     environment:
       MONGODB_URI: ""  # Your MongoDB connection URI ending with /db-name
       PRODUCTION_ENVIRONMENT: null  # Leave null if you want testing credentials to work
