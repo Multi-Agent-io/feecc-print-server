@@ -44,6 +44,6 @@ To configure your Print Server deployment edit the environment variables, provid
 
 - `MONGODB_URI` - Your MongoDB connection URI ending with `/db-name`
 - `PRODUCTION_ENVIRONMENT` - Leave null if you want testing credentials to work, otherwise set it to `true`
-- `PAPER_WIDTH` - Paper width in mm (string)
+- `PAPER_WIDTH` - Paper width in mm
 - `PRINTER_MODEL` - Label printer model name
-- `RED` - Whether the black and red paper is loaded or not (boolean)
+- `RED` - Whether the black and red paper is loaded or not (boolean, null for false)

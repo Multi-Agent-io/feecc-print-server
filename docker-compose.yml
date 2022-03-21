@@ -15,6 +15,6 @@ services:
     environment:
       MONGODB_URI: ""  # Your MongoDB connection URI ending with /db-name
       PRODUCTION_ENVIRONMENT: null  # Leave null if you want testing credentials to work
-      PAPER_WIDTH: "62"  # Paper width in mm (string)
+      PAPER_WIDTH: 62  # Paper width in mm
       PRINTER_MODEL: "QL-800"  # Label printer model
-      RED: true  # Whether the black and red paper is loaded or not
+      RED: null  # Whether the black and red paper is loaded or not (null for not)
