@@ -12,7 +12,7 @@ def test_img() -> str:
 
 @pytest.mark.printer
 def test_print_image(test_img) -> None:
-    resp = test_client.post("/printing/print_image", files={"image_file": open(test_img, "rb")})
+    resp = test_client.post("/print_image", files={"image_file": open(test_img, "rb")})
     assert resp.ok
     assert resp.json().get("status") == 200
 
@@ -20,7 +20,7 @@ def test_print_image(test_img) -> None:
 @pytest.mark.printer
 def test_print_image_annotated(test_img) -> None:
     resp = test_client.post(
-        "/printing/print_image",
+        "/print_image",
         files={"image_file": open(test_img, "rb")},
         data={"annotation": "image with annotation"},
     )
