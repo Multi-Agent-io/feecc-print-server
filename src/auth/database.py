@@ -31,7 +31,7 @@ class MongoDbWrapper(metaclass=SingletonMeta):
         mongo_client: AsyncIOMotorClient = AsyncIOMotorClient(mongo_client_url, serverSelectionTimeoutMS=5000)
         db_name: str = _get_database_name(mongo_client_url)
         self._database = mongo_client[db_name]
-        self._employee_collection: AsyncIOMotorCollection = self._database["Employee-data"]
+        self._employee_collection: AsyncIOMotorCollection = self._database["employeeData"]
 
         logger.info("Connected to MongoDB")
 
