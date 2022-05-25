@@ -1,17 +1,17 @@
-import os
-
 from fastapi import HTTPException, Header, status
 from loguru import logger
+from typed_getenv import getenv
 
 from .database import MongoDbWrapper
 from .models import Employee
 
 TESTING_VALUE: str = "1111111111"
+PRODUCTION_ENVIRONMENT = getenv("PRODUCTION_ENVIRONMENT", default=False, var_type=bool, optional=True)
 
 
 async def authenticate(rfid_card_id: str = Header(TESTING_VALUE)) -> Employee:
     try:
-        if rfid_card_id == TESTING_VALUE and os.getenv("PRODUCTION_ENVIRONMENT", False):
+        if rfid_card_id == TESTING_VALUE and PRODUCTION_ENVIRONMENT:
             raise ValueError("Development credentials are not allowed in production environment")
 
         employee = await MongoDbWrapper().get_concrete_employee(rfid_card_id)

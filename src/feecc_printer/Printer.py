@@ -12,10 +12,11 @@ from PIL.ImageFont import FreeTypeFont
 from brother_ql import BrotherQLRaster, conversion
 from brother_ql.backends.helpers import send
 from loguru import logger
+from typed_getenv import getenv
 
-PAPER_WIDTH: str = os.getenv("PAPER_WIDTH", "")
-PRINTER_MODEL: str = os.getenv("PRINTER_MODEL", "")
-RED: bool = bool(os.getenv("RED"))
+PAPER_WIDTH: str = getenv("PAPER_WIDTH", var_type=str)
+PRINTER_MODEL: str = getenv("PRINTER_MODEL", var_type=str)
+RED: bool = getenv("RED", var_type=bool)
 
 assert PAPER_WIDTH, "Missing PAPER_WIDTH environment variable"
 assert PRINTER_MODEL, "Missing PRINTER_MODEL environment variable"
