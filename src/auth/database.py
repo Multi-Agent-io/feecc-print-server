@@ -1,13 +1,13 @@
-import os
 import typing as tp
 
 from loguru import logger
 from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorCollection
+from typed_getenv import getenv
 
 from .Singleton import SingletonMeta
 from .models import Employee
 
-MONGODB_URI: str = os.getenv("MONGODB_URI", "")
+MONGODB_URI: str = getenv("MONGODB_URI", var_type=str)
 assert MONGODB_URI, "MONGODB_URI environment variable is missing"
 
 
