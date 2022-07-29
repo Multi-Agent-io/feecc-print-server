@@ -1,7 +1,7 @@
 import typing as tp
 
 import uvicorn
-from fastapi import Depends, FastAPI, File, Form, status
+from fastapi import Depends, FastAPI, File, Form, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from loguru import logger
 
@@ -45,7 +45,7 @@ def print_image(image_file: bytes = File(...), annotation: tp.Optional[str] = Fo
     except Exception as e:
         message = f"An error occurred while printing the image: {e}"
         logger.error(message)
-        return GenericResponse(status=status.HTTP_500_INTERNAL_SERVER_ERROR, details=message)
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=message) from e
 
 
 if __name__ == "__main__":

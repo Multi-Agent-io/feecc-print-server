@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "feecc-print-server"
-version = "1.0.2"
+version = "1.0.3"
 description = "A printing server for Feecc QA system"
 authors = ["arseniiarsenii <arseniivelichko2@gmail.com>"]
 
